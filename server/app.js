@@ -29,7 +29,7 @@ app.get('/test', async (req, res) => {
     //await DBPool.query("insert into Roles(role_name) values ($1)", [req.body])
     const result = await DBPool.query("select * from Roles")
 
-    res.send(result.rows.join(' '))
+    res.send(JSON.stringify(result.rows))
 })
 
 app.listen(PORT, () => {
